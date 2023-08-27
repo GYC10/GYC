@@ -1,30 +1,50 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, {useState, useEffect} from 'react';
-import './App.css';
+import React, { useState } from 'react';
+function LoginPage() {
 
+    const [Email, setEmail] = useState("");
+    const [Password, setPassword] = useState("");
 
+    const onEmailHandler = (event) => {
+        setEmail(event.currentTarget.value);
+    }
+    const onPasswordHandler = (event) => {
+        setPassword(event.currentTarget.value);
+    }
+    const onSubmitHandler = (event) => {
+        event.preventDefault();
 
-function App() {
-    const [message, setMessage] = useState("ttt");
-    useEffect(() => {
-        fetch('/api/test')
-            .then(response => response.text())
-            .then(message => {
-                setMessage(message);
-            });
-    }, [])
+        console.log('Email', Email);
+        console.log('Password', Password);
+
+        let body = {
+            email: Email,
+            password: Password,
+        }
+    }
+
     return (
-        <div className="App">
-            <header className="App-header">
-                <h1 className="App-title">{message}</h1>
-            </header>
-            <p className="App-intro">
-                To get started, edit <code>src/App.js</code> and save to reload.
-            </p>
+        <div style={{
+            display: 'flex', justifyContent: 'center', alignItems: 'center',
+            width: '100%', height: '100vh'
+        }}>
+            <form style={{ display: 'flex', flexDirection: 'column' }}
+                onSubmit={onSubmitHandler}
+            >
+                <label>Email</label>
+                <input type='email' value={Email} onChange={onEmailHandler} />
+                <label>Password</label>
+                <input type='password' value={Password} onChange={onPasswordHandler} />
+                <br />
+                <button formAction=''>
+                    Login
+                </button>
+            </form>
         </div>
     )
 }
-export default App;
+
+export default LoginPage;
 
 
 
