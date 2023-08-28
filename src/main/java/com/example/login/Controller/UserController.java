@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +27,10 @@ public class UserController {
             throw new Exception("로그인에 실패했습니다.");//Optional:NPE를 감싸줌
         }
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @GetMapping("/test")
+    public String name(){
+        return "내 이름은 박은향";
     }
     @GetMapping("")
     public List<User> getAllUsers(){
