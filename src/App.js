@@ -1,51 +1,38 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from 'react';
-function LoginPage() {
+import logo from './logo.svg';
+import './App.css';
+import { useEffect, useState } from 'react';
 
-    const [Email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
 
-    const onEmailHandler = (event) => {
-        setEmail(event.currentTarget.value);
-    }
-    const onPasswordHandler = (event) => {
-        setPassword(event.currentTarget.value);
-    }
-    const onSubmitHandler = (event) => {
-        event.preventDefault();
+function App() {
+    const [message, setMessage] = useState("")
 
-        console.log('Email', Email);
-        console.log('Password', Password);
-
-        let body = {
-            email: Email,
-            password: Password,
-        }
-    }
+    useEffect(() => {
+        fetch("/users/test")
+            .then(res => res.text())
+            .then(m => setMessage(m))
+    }, [])
 
     return (
-        <div style={{
-            display: 'flex', justifyContent: 'center', alignItems: 'center',
-            width: '100%', height: '100vh'
-        }}>
-            <form style={{ display: 'flex', flexDirection: 'column' }}
-                onSubmit={onSubmitHandler}
-            >
-                <label>Email</label>
-                <input type='email' value={Email} onChange={onEmailHandler} />
-                <label>Password</label>
-                <input type='password' value={Password} onChange={onPasswordHandler} />
-                <br />
-                <button formAction=''>
-                    Login
-                </button>
-            </form>
+        <div className="App">
+            <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <p>
+                    {message}
+                </p>
+                <a
+                    className="App-link"
+                    href="https://reactjs.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Learn React
+                </a>
+            </header>
         </div>
-    )
+    );
 }
 
-export default LoginPage;
-
+export default App;
 
 
 
