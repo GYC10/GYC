@@ -5,22 +5,22 @@ import ListUserComponent from './components/ListUserComponent';
 import CreateUserComponent from './components/CreateUserComponent';
 import ViewUserComponent from './components/ViewUserComponent';
 
-
 function App() {
     return (
         <div>
             <Router>
                 <div className="container">
                     <Routes>
-                        <Route path="/" exact element={<ListUserComponent />}></Route>
-                        <Route path="/users" element={<ListUserComponent />}></Route>
-                        <Route path="/add-users/:id" element={<CreateUserComponent />}></Route>
-                        <Route path="/view-user/:id" element={<ViewUserComponent />}></Route>
+                        <Route path="/" element={<ListUserComponent />} />
+                        {/*<Route path="/users" element={<ListUserComponent />} />*/}
+                        <Route path="/add-user" element={<CreateUserComponent />} />
+                        {/*<Route path="/add-user/:id" element={<CreateUserComponent />} />*/}
+                        {/*<Route path="/view-user/:id" element={<ViewUserComponent />} />*/}
                     </Routes>
                 </div>
             </Router>
-
-       </div>
+        </div>
     );
 }
+
 export default App;
