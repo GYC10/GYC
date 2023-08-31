@@ -12,10 +12,10 @@ function App() {
                 <div className="container">
                     <Routes>
                         <Route path="/" element={<ListUserComponent />} />
-                        {/*<Route path="/users" element={<ListUserComponent />} />*/}
-                        <Route path="/add-user" element={<CreateUserComponent />} />
-                        {/*<Route path="/add-user/:id" element={<CreateUserComponent />} />*/}
-                        {/*<Route path="/view-user/:id" element={<ViewUserComponent />} />*/}
+                        <Route path="/users" element={<ListUserComponent />} />
+                        {<Route path="/add-user/add" element={<CreateUserComponent />} />}
+                        {<Route path="/add-user/:id" element={<CreateUserComponent />} />}
+                        {<Route path="/view-user/:id" element={<ViewUserComponent />} />}
                     </Routes>
                 </div>
             </Router>

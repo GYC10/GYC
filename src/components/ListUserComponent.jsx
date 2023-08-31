@@ -22,13 +22,13 @@ function ListUserComponent() {
     }
 
     const addUser = () => {
-        navigate('/add-user/_add');
+        navigate('/add-user/add');
     }
-
+    
     useEffect(() => {
         UserService.getUsers().then((res) => {
             if (res.data == null) {
-                navigate('/add-user/_add');
+                navigate('/add-user/add');
             }
             setUsers(res.data);
         });
