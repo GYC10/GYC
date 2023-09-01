@@ -4,8 +4,7 @@ import { useNavigate,useParams } from 'react-router-dom';
 
 function CreateUserComponent(props) {
     const navigate = useNavigate();
-    const { id } = useParams();
-
+    const [id, setId] = useState(props.match.params.id);
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [emailId, setEmailId] = useState('');
@@ -13,7 +12,9 @@ function CreateUserComponent(props) {
     useEffect(() => {
         if (id !== '_add') {
             UserService.getUserById(id).then((res) => {
+
                 let user = res.data;
+             
                 setFirstName(user.firstName);
                 setLastName(user.lastName);
                 setEmailId(user.emailId);

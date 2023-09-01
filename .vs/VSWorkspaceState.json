@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src"
+    "\\src",
+    "\\src\\chapter_03",
+    "\\src\\components",
+    "\\src\\services"
   ],
-  "SelectedNode": "\\src\\index.css",
+  "SelectedNode": "\\src\\components\\ListUserComponent.jsx",
   "PreviewInSolutionExplorer": false
 }

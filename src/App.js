@@ -11,16 +11,16 @@ function App() {
             <Router>
                 <div className="container">
                     <Routes>
-                        <Route path="/" element={<ListUserComponent />} />
-                        <Route path="/users" element={<ListUserComponent />} />
-                        {<Route path="/add-user/add" element={<CreateUserComponent />} />}
-                        {<Route path="/add-user/:id" element={<CreateUserComponent />} />}
-                        {<Route path="/view-user/:id" element={<ViewUserComponent />} />}
+                        <Route path="/" exact element={<ListUserComponent />}/>
+                        <Route path="/add-user/add" element={<CreateUserComponent />}/>
+                        <Route path="/add-user/:id" element={<CreateUserComponent />}/>
+                        <Route path="/view-user/:id" element={<ViewUserComponent />}/>
                     </Routes>
                 </div>
             </Router>
         </div>
     );
 }
+
 
 export default App;
