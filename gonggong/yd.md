@@ -17,6 +17,8 @@ function App () {
               setMessage(message);
           });
   },[])
+
+  const _mas = JSON.parse(message);
   return (
       <div className="App">
           <header className="App-header">
