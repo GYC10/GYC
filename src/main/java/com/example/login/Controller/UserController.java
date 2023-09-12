@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/users")
@@ -30,12 +31,20 @@ public class UserController {
     }
     @GetMapping("/test")
     public String name(){
-        return "내 이름은 박은향";
+        System.out.println("연결");
+        return "연결 완료";
     }
     @GetMapping("")
-    public List<User> getAllUsers(){
-        return userService.getAllUser();
+    public List<User> findAll(){
+        return userService.findAll();
     }
+    @GetMapping("/account/{id}")
+    public Long findId(@PathVariable Long id){
+        return id;
+
+    }
+
+
     @PostMapping("/join")
     public User join(@RequestBody User user){
         return userService.join(user);

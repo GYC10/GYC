@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,16 +29,20 @@ public class UserService {
         }
         return userDao.save(user);
     }
-    public List<User> getAllUser(){
+    public List<User> findAll(){
         return userDao.findAll();
-    }
+    };
     public void deleteUser(User user){ //userid에 의해 id를 삭제
         userDao.deleteById(user.getUserid());
     }
     public Optional<User> getUserLoginCheck(User user) {//로그인 체크
         return userDao.findByUseridAndUserPassword(user.getUserid(), user.getUserPassword());
     }
-}
+
+
+
+    }
+
 
 
 
