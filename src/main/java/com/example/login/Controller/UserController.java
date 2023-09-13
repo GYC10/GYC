@@ -38,12 +38,11 @@ public class UserController {
     public List<User> findAll(){
         return userService.findAll();
     }
-    @GetMapping("/account/{id}")
-    public Long findId(@PathVariable Long id){
-        return id;
 
+    @GetMapping("/userid")
+    public Long find(){
+        return userService.findid();
     }
-
 
     @PostMapping("/join")
     public User join(@RequestBody User user){

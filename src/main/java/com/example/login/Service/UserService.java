@@ -38,6 +38,10 @@ public class UserService {
     public Optional<User> getUserLoginCheck(User user) {//로그인 체크
         return userDao.findByUseridAndUserPassword(user.getUserid(), user.getUserPassword());
     }
+    public Long findid(){
+        return userDao.findAll().get(0).getUserid();
+    }
+
 
 
 
